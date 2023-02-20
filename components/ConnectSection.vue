@@ -1,5 +1,5 @@
 <template>
-  <section class="section connect">
+  <section class="section connect" id="connect">
     <div class="section__container">
       <h2 class="connect__title">Вы с нами?</h2>
       <p class="connect__subtitle">

@@ -1,5 +1,5 @@
 <template>
-  <section class="section about">
+  <section class="section about" id="about">
     <div class="section__container">
       <h2 class="about__title">Что такое DVGames?</h2>
       <ul class="about__list">

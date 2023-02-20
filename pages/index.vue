@@ -5,6 +5,7 @@
     <UsefulSection />
     <WhySection />
     <ConnectSection />
+    <ToTopButton />
   </main>
 </template>
 
@@ -30,6 +31,7 @@ body,
   padding: 0;
   position: relative;
   background-color: rgb(0, 0, 0);
+  scroll-behavior: smooth;
 }
 .section {
   width: 100%;

@@ -7,5 +7,3 @@
     </v-layout>
   </div>
 </template>
-
-s

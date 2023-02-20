@@ -1,21 +1,27 @@
 <template>
-  <section class="section hero">
+  <section class="section hero" id="hero">
     <div class="section__container">
       <h1 class="hero__title">DVGames: стань частью комьюнити уже сегодня!</h1>
       <p class="hero__subtitle">
         Собираем всех, кто ценит дух соревнований, борьбы и азарта!
       </p>
-      <v-btn class="hero__button" color="#83abce">Я с вами!</v-btn>
-      <v-btn variant="tonal" class="hero__button">Вначале подробности</v-btn>
+      <v-btn
+        class="hero__button"
+        color="#83abce"
+        :to="{ path: '/', hash: '#connect' }"
+        >Я с вами!</v-btn
+      >
+      <v-btn
+        variant="tonal"
+        class="hero__button"
+        :to="{ path: '/', hash: '#about' }"
+        >Вначале подробности</v-btn
+      >
     </div>
   </section>
 </template>
 
-<script>
-export default {
-  name: "HeroSection",
-};
-</script>
+<script></script>
 
 <style lang="scss" scoped>
 .hero {
