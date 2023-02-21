@@ -37,7 +37,10 @@
     margin-top: 15px;
   }
   &__wrapper {
-    width: calc(100% / 12 * 6);
+    width: 100%;
+    @include md {
+      width: calc(100% / 12 * 6);
+    }
   }
 
   .why__container {
@@ -56,7 +59,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  height: 100px;
   z-index: 0;
   top: 0;
   left: 0;

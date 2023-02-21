@@ -55,20 +55,39 @@
   color: aliceblue;
   padding: 50px 15px 50px;
   &__title {
-    font-size: 32px;
+    font-size: 28px;
+    @include sm {
+      font-size: 32px;
+    }
   }
   &__list {
+    box-sizing: border-box;
     list-style: none;
     display: flex;
-    margin-top: 15px;
+    flex-wrap: wrap;
+    margin: 15px 0 0 0;
     gap: 10px;
-    width: calc(100% / 12 * 9);
+    width: 100%;
+    @include sm {
+    }
+    @include md {
+      width: calc(100% / 12 * 10);
+    }
     &-item {
       padding: 15px;
-      width: calc(100% / 12 * 4);
+      width: 100%;
       background-color: rgba(40, 42, 44, 0.45);
       border-radius: 5px;
       box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+      @include sm {
+        width: calc(100% / 12 * 6 - 10px);
+      }
+      @include md {
+        width: calc(100% / 12 * 6 - 7px);
+      }
+      @include lg {
+        width: calc(100% / 12 * 4 - 7px);
+      }
     }
 
     &-title {

@@ -7,9 +7,7 @@
           <v-btn
             v-for="icon in icons"
             :key="icon"
-            class="mx-4"
             :icon="icon"
-            variant="plain"
             size="small"
           ></v-btn>
         </div>
@@ -33,11 +31,16 @@ export default {
 <style lang="scss" scoped>
 .footer {
   &__container {
+    height: 100px;
     width: 100%;
     max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  &__social {
+    display: flex;
+    gap: 8px;
   }
 }
 </style>

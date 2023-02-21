@@ -12,7 +12,7 @@
       </p>
     </div>
 
-    <v-sheet width="400" class="mx-auto connect__form">
+    <v-sheet class="mx-auto connect__form">
       <v-form validate-on="submit" @submit.prevent="submit">
         <v-autocomplete
           label="ваш вид спорта"
@@ -64,14 +64,19 @@ export default {
     font-size: 32px;
   }
   &__subtitle {
-    width: calc(100% / 12 * 6);
+    width: 100%;
     color: #000000;
+    @include md {
+      width: calc(100% / 12 * 6);
+    }
   }
   &__form {
     background-color: rgba(90, 116, 119, 0.5);
     border-radius: 5px;
     padding: 30px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 100%;
     &-list {
       padding: 40px 0;
     }

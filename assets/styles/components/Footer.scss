@@ -1,0 +1,96 @@
+.footer {
+  color: $white-text;
+  font-size: 14px;
+  background: $color-secondary;
+  padding: 60px 15px 30px 15px;
+  @include sm {
+    padding: 60px 0 30px 0;
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    @include sm {
+      max-width: 510px;
+    }
+    @include md {
+      max-width: 690px;
+    }
+    @include lg {
+      max-width: 930px;
+    }
+    @include xl {
+      max-width: 1110px;
+    }
+  }
+  &__contacts {
+    &-title {
+      font-size: 22px;
+      margin: 0 0 10px 0;
+      padding: 2px 0 2px 0;
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: $white-text;
+    }
+    &-text {
+      padding: 0;
+      font-size: 14px;
+      line-height: 24px;
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      color: rgba(255, 255, 255, 0.7);
+      &_type_bold {
+        font-weight: 600;
+      }
+    }
+  }
+  &__social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    &-list {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      gap: 10px;
+      margin: 0;
+    }
+    &-item {
+    }
+    &-link {
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.08);
+      color: $white-text;
+      line-height: 1;
+      padding: 0;
+      margin: 0;
+      border-radius: 4px;
+      text-align: center;
+      width: 36px;
+      height: 36px;
+      transition: 0.3s;
+      &:hover {
+        background: $color-primary;
+      }
+    }
+  }
+  &__copy {
+    &-text {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      text-decoration: none;
+      color: $copy-text;
+      transition: color ease-in 0.3s;
+      &:hover {
+        color: rgba($color-primary, 0.6);
+      }
+    }
+  }
+}
