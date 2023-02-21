@@ -66,6 +66,7 @@
   }
   &__button {
     margin-right: 15px;
+    padding: 0 10px;
   }
 }
 </style>
