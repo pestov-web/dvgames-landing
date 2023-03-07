@@ -3,7 +3,7 @@
     <div class="hero__container">
       <h1 class="hero__title">DVGames: стань частью комьюнити уже сегодня!</h1>
       <p class="hero__subtitle">
-        Собираем всех, кто ценит дух соревнований, борьбы и азарта!
+        Собираем всех, кто ценит дух соревнований, борьбы и спортивного азарта!
       </p>
       <div class="hero__buttons-container">
         <v-btn

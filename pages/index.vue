@@ -6,6 +6,7 @@
     <WhySection />
     <ConnectSection />
     <ToTopButton />
+    <RegDialog />
   </main>
 </template>
 
