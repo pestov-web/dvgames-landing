@@ -51,7 +51,7 @@ const onSubmit = async () => {
       succes.value = true;
     } else {
       try {
-        await $fetch("http://127.0.0.1:3001/polls", {
+        await $fetch("http://159.69.54.206:3001/polls", {
           method: "POST",
           body: data,
         }).then(() => {
