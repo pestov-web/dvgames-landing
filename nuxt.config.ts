@@ -34,4 +34,5 @@ export default defineNuxtConfig({
   googleFonts: {
     download: true,
   },
+  modules: ["@nuxtjs/tailwindcss", "nuxt-icon"],
 });

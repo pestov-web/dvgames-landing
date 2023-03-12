@@ -1,5 +1,13 @@
 <script setup>
-const data = reactive({
+import {
+  email,
+  helpers,
+  minLength,
+  required,
+  sameAs,
+} from "@vuelidate/validators";
+
+const formData = reactive({
   select: [],
   selfSelect: "",
   selfSport: "",
@@ -8,28 +16,7 @@ const data = reactive({
   selectErr: false,
   sportErr: false,
   succes: "",
-  selectRules: [
-    (value) => {
-      if (value.length) {
-        data.selectErr = false;
-        return true;
-      } else {
-        data.selectErr = true;
-        return "необходимо сделать выбор";
-      }
-    },
-  ],
-  sportRules: [
-    (value) => {
-      if (value.length > 1) {
-        data.sportErr = false;
-        return true;
-      } else {
-        data.sportErr = true;
-        return "необходимо сделать выбор";
-      }
-    },
-  ],
+
   items: [
     "Покер",
     "Киберспорт",
@@ -44,8 +31,28 @@ const dialog = useState("dialog", () => false);
 const error = useState("error", () => false);
 const succes = useState("succes", () => false);
 
+const rules = computed(() => {
+  return {
+    sport: {
+      required: helpers.withMessage("Необходимо сделать выбор !", required),
+    },
+    // selfSport: {
+    //   required: helpers.withMessage("Необходимо сделать выбор !", required),
+    // },
+    select: {
+      required: helpers.withMessage("Необходимо сделать выбор !", required),
+    },
+    // selfSelect: {
+    //   required: helpers.withMessage("Необходимо сделать выбор !", required),
+    // },
+  };
+});
+
+import { useVuelidate } from "@vuelidate/core";
+const v$ = useVuelidate(rules, formData);
 const onSubmit = async () => {
-  if (!data.sportErr && !data.selectErr) {
+  v$.value.$validate();
+  if (!v$.value.$error) {
     if (localStorage.getItem("succes")) {
       dialog.value = true;
       succes.value = true;
@@ -53,7 +60,7 @@ const onSubmit = async () => {
       try {
         await $fetch("http://159.69.54.206:3001/polls", {
           method: "POST",
-          body: data,
+          body: formData,
         }).then(() => {
           dialog.value = true;
           error.value = false;
@@ -83,38 +90,51 @@ const onSubmit = async () => {
     </div>
 
     <v-sheet class="mx-auto connect__form">
-      <v-form validate-on="submit" @submit.prevent="onSubmit">
-        <v-autocomplete
-          v-model="data.sport"
-          label="ваш вид спорта"
-          :items="data.items"
-          variant="solo"
-          :rules="data.sportRules"
-        ></v-autocomplete
-        ><v-text-field
-          v-if="data.sport === `Другое...`"
-          v-model="data.selfSport"
+      <v-form validate-on="input" @submit.prevent="onSubmit" class="relative">
+        <div class="h-20">
+          <v-autocomplete
+            v-model="formData.sport"
+            label="ваш вид спорта"
+            :items="formData.items"
+            variant="solo"
+            @change="v$.sport.$touch"
+            hide-details
+          ></v-autocomplete
+          ><span class="text-xs text-red-500 h-2" v-if="v$.sport.$error">{{
+            v$.sport.$errors[0].$message
+          }}</span>
+        </div>
+        <v-text-field
+          v-if="formData.sport === `Другое...`"
+          v-model="formData.selfSport"
           label="Укажите ивд спорта"
           variant="solo"
         ></v-text-field>
-        <v-combobox
-          v-model="data.select"
-          :items="data.items"
-          label="Какой раздел вас интересует ? "
-          multiple
-          variant="solo"
-          :rules="data.selectRules"
-        ></v-combobox
-        ><v-text-field
-          v-if="data.select.includes(`Другое...`)"
-          v-model="data.selfSelect"
+        <div class="h-20">
+          <v-combobox
+            :class="{ 'mb-6': !v$.sport.$error }"
+            v-model="formData.select"
+            :items="formData.items"
+            label="Какой раздел вас интересует ? "
+            multiple
+            variant="solo"
+            @change="v$.select.$touch"
+            hide-details
+          ></v-combobox
+          ><span class="text-xs text-red-500" v-if="v$.select.$error">{{
+            v$.select.$errors[0].$message
+          }}</span>
+        </div>
+        <v-text-field
+          v-if="formData.select.includes(`Другое...`)"
+          v-model="formData.selfSelect"
           label="Укажите свои разделы"
           variant="solo"
         ></v-text-field
         ><v-textarea
           label="Что вы хотите видеть на портале ? "
           variant="solo"
-          v-model="data.content"
+          v-model="formData.content"
         ></v-textarea>
         <v-btn type="submit" block class="mt-2">отправить</v-btn>
       </v-form>
@@ -157,5 +177,8 @@ const onSubmit = async () => {
       padding: 40px 0;
     }
   }
+}
+.none {
+  opacity: 0;
 }
 </style>
