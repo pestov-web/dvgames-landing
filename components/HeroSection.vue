@@ -27,7 +27,7 @@
 
 <style lang="scss" scoped>
 .hero {
-  background-image: url("/img/1.webp");
+  background-image: url("/img/11.webp");
   min-height: 100vh;
   background-attachment: fixed;
   background-position: center;
@@ -45,6 +45,7 @@
   &__title {
     font-size: 26px;
     width: 100%;
+    color: #212121;
     @include sm {
       max-width: calc(100% / 12 * 7);
     }
@@ -56,6 +57,7 @@
     margin: 0;
     font-size: 24px;
     width: 80%;
+    color: #212121;
     @include sm {
       max-width: calc(100% / 12 * 6);
       font-size: 26px;
@@ -63,6 +65,7 @@
   }
   &__buttons-container {
     display: flex;
+    color: #212121;
   }
   &__button {
     margin-right: 15px;
