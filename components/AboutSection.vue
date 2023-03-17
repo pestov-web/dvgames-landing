@@ -46,14 +46,23 @@ export default {
       rgba(220, 220, 220, 0.9),
       rgba(220, 220, 220, 0.9)
     ),
-    url("/img/4.webp");
+    url("/img/4_small.webp");
   min-height: 300px;
-  background-attachment: fixed;
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   color: #212121;
   box-shadow: inset 0 0 0 3000px rgba(150, 150, 150, 0.192);
+  @include md {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(220, 220, 220, 0.9),
+        rgba(220, 220, 220, 0.9)
+      ),
+      url("/img/4.webp");
+    background-attachment: fixed;
+  }
   &__title {
     font-size: 32px;
   }

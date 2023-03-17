@@ -27,14 +27,23 @@
 
 <style lang="scss" scoped>
 .hero {
-  background-image: url("/img/11.webp");
   min-height: 100vh;
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+  background-image: url("/img/11_small.webp");
   background-size: cover;
   color: #f0f8ffff;
   padding: 0 15px;
+  @include sm {
+  }
+  @include md {
+    background-image: url("/img/11.webp");
+    background-attachment: fixed;
+  }
+  @include lg {
+  }
+  @include xl {
+  }
   &__container {
     display: flex;
     width: 100%;

@@ -145,9 +145,9 @@ const onSubmit = async () => {
 
 <style lang="scss" scoped>
 .connect {
-  background-image: url("/img/7.webp");
+  background-image: url("/img/7_small.webp");
   min-height: 500px;
-  background-attachment: fixed;
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -156,6 +156,10 @@ const onSubmit = async () => {
   flex-direction: column;
   gap: 50px;
   padding: 50px 15px;
+  @include md {
+    background-image: url("/img/7.webp");
+    background-attachment: fixed;
+  }
   &__title {
     font-size: 32px;
   }

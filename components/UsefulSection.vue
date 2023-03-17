@@ -46,14 +46,18 @@
   }
 }
 .useful {
-  background-image: url("/img/3.webp");
+  background-image: url("/img/3_small.webp");
   min-height: 500px;
-  background-attachment: fixed;
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   color: aliceblue;
   padding: 50px 15px 50px;
+  @include md {
+    background-image: url("/img/3.webp");
+    background-attachment: fixed;
+  }
   &__title {
     font-size: 28px;
     @include sm {

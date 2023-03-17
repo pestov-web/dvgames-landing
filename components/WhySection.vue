@@ -53,8 +53,8 @@
 .why:before {
   content: "";
   min-height: 360px;
-  background-image: url("/img/6.webp");
-  background-attachment: fixed;
+  background-image: url("/img/6_small.webp");
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -65,5 +65,9 @@
   right: 0;
   bottom: 0;
   filter: blur(3px);
+  @include md {
+    background-image: url("/img/6.webp");
+    background-attachment: fixed;
+  }
 }
 </style>
