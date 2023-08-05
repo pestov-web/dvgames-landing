@@ -2,7 +2,8 @@
   <header class="header">
     <div class="header__container">
       <div class="logo">dvgames</div>
-      <v-btn @click="regDialog = true">Регистрация</v-btn>
+      <!--      <v-btn @click="regDialog = true">Регистрация</v-btn>-->
+      <div></div>
     </div>
   </header>
 </template>
